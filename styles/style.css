@@ -22,8 +22,29 @@ html {
   background-color: #00539F;
 }
 
+#copperInput, #silverInput, #goldInput, #platinumInput {
+  width: 30px;
+  background-color: #f9e4b9;
+
+}
+
+#copperResult, #silverResult, #goldResult, #platinumResult {
+  width: 50px;
+  background-color: #f9e4b9;
+
+}
+
+.row {
+  padding-top: 8px;
+}
+
+label {
+  font-size: 18px;
+  font-family: fantasy;
+}
+
 body {
-  width: 600px;
+  width: 1000px;
   margin: 0 auto;
   background-color: #FF9500;
   padding: 0 20px 20px 20px;
