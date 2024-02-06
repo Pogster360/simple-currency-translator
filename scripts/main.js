@@ -15,11 +15,44 @@ const platinumInput = document.getElementById("platinumInput");
 // button variable for actionlistner
 const calculate = document.getElementById("calculate");
 
+const here = document.getElementById("this");
+
+// function results() {
+//     copperResult.textContent = copperInput.value;
+//     silverResult.textContent = silverInput.value;
+//     goldResult.textContent = goldInput.value;
+//     platinumResult.textContent = platinumInput.value;
+// }
+
+copperResult.textContent = "0";
+silverResult.textContent = "0";
+goldResult.textContent = "0";
+platinumResult.textContent = "0";
+
+here.textContent = "an amount";
+
 function results() {
-    copperResult.textContent = copperInput.value;
-    silverResult.textContent = silverInput.value;
-    goldResult.textContent = goldInput.value;
-    platinumResult.textContent = platinumInput.value;
+    var pToCp = parseInt(platinumInput.value) * 1000;
+    var gToCp = parseInt(goldInput.value) * 100;
+    var sToCp = parseInt(silverInput.value) * 10;
+    var cToCp = parseInt(copperInput.value);
+    var total = cToCp + sToCp + gToCp + pToCp;
+
+    // display platinum amount
+    var platinumAmount = total / 1000;
+    platinumResult.textContent = Math.floor(platinumAmount);
+
+    // display gold amount
+    var goldAmount = (total / 100) % 10;
+    goldResult.textContent = Math.floor(goldAmount);
+
+    var silverAmount = (total / 10) % 10;
+    silverResult.textContent = Math.floor(silverAmount);
+
+    var copperAmount = total % 10;
+    copperResult.textContent = Math.floor(copperAmount);
+
+    here.textContent = total;
 }
 
 // simple function to test inputs elements
