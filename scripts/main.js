@@ -15,7 +15,7 @@ const platinumInput = document.getElementById("platinumInput");
 // button variable for actionlistner
 const calculate = document.getElementById("calculate");
 
-const here = document.getElementById("this");
+const currentTotal = document.getElementById("this");
 
 // function results() {
 //     copperResult.textContent = copperInput.value;
@@ -28,8 +28,7 @@ copperResult.textContent = "0";
 silverResult.textContent = "0";
 goldResult.textContent = "0";
 platinumResult.textContent = "0";
-
-here.textContent = "an amount";
+currentTotal.textContent = "0";
 
 function results() {
     var pToCp = parseInt(platinumInput.value) * 1000;
@@ -37,6 +36,9 @@ function results() {
     var sToCp = parseInt(silverInput.value) * 10;
     var cToCp = parseInt(copperInput.value);
     var total = cToCp + sToCp + gToCp + pToCp;
+
+    // add the currentTotal amount after turning into an int
+    total += parseInt(currentTotal.textContent)
 
     // display platinum amount
     var platinumAmount = total / 1000;
@@ -46,13 +48,15 @@ function results() {
     var goldAmount = (total / 100) % 10;
     goldResult.textContent = Math.floor(goldAmount);
 
+    // display silver amount
     var silverAmount = (total / 10) % 10;
     silverResult.textContent = Math.floor(silverAmount);
 
+    // display copper amount
     var copperAmount = total % 10;
     copperResult.textContent = Math.floor(copperAmount);
 
-    here.textContent = total;
+    currentTotal.textContent = total;
 }
 
 // simple function to test inputs elements
