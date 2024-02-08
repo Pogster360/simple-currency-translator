@@ -31,10 +31,26 @@ platinumResult.textContent = "0";
 currentTotal.textContent = "0";
 
 function results() {
-    var pToCp = parseInt(platinumInput.value) * 1000;
-    var gToCp = parseInt(goldInput.value) * 100;
-    var sToCp = parseInt(silverInput.value) * 10;
-    var cToCp = parseInt(copperInput.value);
+
+    // check if inputs are appropriate inputs
+    // it checks for values but i need to fix it later so that if the field is empty it will correctly output an amount of 0
+    if (copperInput.value.trim() === "" || silverInput.value.trim() === "" || goldInput.value.trim() === "" || platinumInput.value.trim() === "") {
+        return alert("there is no value, this needs to be fixed")
+    } else if (isNaN(copperInput.value) || isNaN(silverInput.value) || isNaN(goldInput.value) || isNaN(platinumInput.value)) {
+        return alert("you must enter a number");
+    } else if (copperInput.value < 0 || silverInput.value < 0 || goldInput.value < 0 || platinumInput.value < 0) {
+        return alert("The value must be positive");
+    } else {
+        var pToCp = parseInt(platinumInput.value) * 1000;
+        var gToCp = parseInt(goldInput.value) * 100;
+        var sToCp = parseInt(silverInput.value) * 10;
+        var cToCp = parseInt(copperInput.value);
+    }
+    // old way to parse values
+    // var pToCp = parseInt(platinumInput.value) * 1000;
+    // var gToCp = parseInt(goldInput.value) * 100;
+    // var sToCp = parseInt(silverInput.value) * 10;
+    // var cToCp = parseInt(copperInput.value);
     var total = cToCp + sToCp + gToCp + pToCp;
 
     // add the currentTotal amount after turning into an int
