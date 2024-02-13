@@ -53,15 +53,6 @@ function results() {
             return parsedValue;
         }
     };
-    
-    // if (isNaN(parsedValue)) {
-    //     alert("The value must be a number");
-    //     throw new Error("not a number");
-    // } else if (parsedValue.trim() === "") {
-    //     return 0;
-    // }
-    //     return parsedValue;
-    // };
 
     let copperValue, silverValue, goldValue, platinumValue;
 
@@ -72,8 +63,11 @@ function results() {
         platinumValue = parseInput(platinumInput);
     } catch (error) {
         console.log(error);
+        copperValue = 0;
+        silverValue = 0;
+        goldValue = 0;
+        platinumValue = 0;
     }
-
 
     // old way to parse values
     var pToCp = parseInt(platinumValue) * 1000;
