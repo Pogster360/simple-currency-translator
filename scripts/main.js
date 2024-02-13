@@ -32,25 +32,54 @@ currentTotal.textContent = "0";
 
 function results() {
 
-    // check if inputs are appropriate inputs
-    // it checks for values but i need to fix it later so that if the field is empty it will correctly output an amount of 0
-    if (copperInput.value.trim() === "" || silverInput.value.trim() === "" || goldInput.value.trim() === "" || platinumInput.value.trim() === "") {
-        return alert("there is no value, this needs to be fixed")
-    } else if (isNaN(copperInput.value) || isNaN(silverInput.value) || isNaN(goldInput.value) || isNaN(platinumInput.value)) {
-        return alert("you must enter a number");
-    } else if (copperInput.value < 0 || silverInput.value < 0 || goldInput.value < 0 || platinumInput.value < 0) {
-        return alert("The value must be positive");
-    } else {
-        var pToCp = parseInt(platinumInput.value) * 1000;
-        var gToCp = parseInt(goldInput.value) * 100;
-        var sToCp = parseInt(silverInput.value) * 10;
-        var cToCp = parseInt(copperInput.value);
+    // create a list for inputs
+    const inputs = [copperInput, silverInput, goldInput, platinumInput];
+
+    // create a function to determine if value is applicable
+    const parseInput = (input) => {
+
+        // variable to turn string into number
+        const parsedValue = parseInt(input.value);
+    
+        // uses original variable to determine if value is null to return the value as 0
+        if (input.value.trim() === "") {
+            return 0;  
+        }
+        // checking if the value is a number
+        else if (isNaN(parsedValue)) {
+            alert("The value must be a number");
+            throw new Error("not a number");
+        } else {
+            return parsedValue;
+        }
+    };
+    
+    // if (isNaN(parsedValue)) {
+    //     alert("The value must be a number");
+    //     throw new Error("not a number");
+    // } else if (parsedValue.trim() === "") {
+    //     return 0;
+    // }
+    //     return parsedValue;
+    // };
+
+    let copperValue, silverValue, goldValue, platinumValue;
+
+    try {
+        const copperValue = parseInput(copperInput);
+        const silverValue = parseInput(silverInput);
+        const goldValue = parseInput(goldInput);
+        const platinumValue = parseInput(platinumInput);
+    } catch (error) {
+        console.log(error);
     }
+
+
     // old way to parse values
-    // var pToCp = parseInt(platinumInput.value) * 1000;
-    // var gToCp = parseInt(goldInput.value) * 100;
-    // var sToCp = parseInt(silverInput.value) * 10;
-    // var cToCp = parseInt(copperInput.value);
+    var pToCp = parseInt(platinumValue) * 1000;
+    var gToCp = parseInt(goldValue) * 100;
+    var sToCp = parseInt(silverValue) * 10;
+    var cToCp = parseInt(copperValue);
     var total = cToCp + sToCp + gToCp + pToCp;
 
     // add the currentTotal amount after turning into an int
