@@ -66,10 +66,10 @@ function results() {
     let copperValue, silverValue, goldValue, platinumValue;
 
     try {
-        const copperValue = parseInput(copperInput);
-        const silverValue = parseInput(silverInput);
-        const goldValue = parseInput(goldInput);
-        const platinumValue = parseInput(platinumInput);
+        copperValue = parseInput(copperInput);
+        silverValue = parseInput(silverInput);
+        goldValue = parseInput(goldInput);
+        platinumValue = parseInput(platinumInput);
     } catch (error) {
         console.log(error);
     }
