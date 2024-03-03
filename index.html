@@ -80,12 +80,65 @@
     </form>
 
     <div>
-      <p id="this">this amount should go here</p>
+      <p id="this">this shows the total value for testing purposes</p>
     </div>
     <!-- button to run function for calcualting amount -->
-    <button id="calculate">Calculate Amount</button>
+    <div>
+      <button id="calculate">Calculate Amount</button>
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+    <div>
+      <p id="fill">there is more stuff here</p>
+      <form>
+        <!-- this row is for the labels / descriptor -->
+        <div class="row">
+          <div class="col">
+            <label for="itemName">Name</label>
+          </div>
+          <div class="col">
+            <label for="itemCost">Cost</label>
+          </div>
+          <div class="col">
+            <label for="itemDamage">Damage</label>
+          </div>
+          <div class="col">
+            <label for="itemWeight">Weight</label>
+          </div>
+          <div class="col">
+            <label for="itemProperties">Properties</label>
+          </div>
+        </div>
+  
+        <!-- this row is for inputting a name.value into each section -->
+        <div class="row">
+          <div class="col">
+            <input type="text" id="itemNameInput" placeholder="name">
+          </div>
+          <div class="col">
+            <input type="text" id="itemCostInput" placeholder="0 cp">
+          </div>
+          <div class="col">
+            <input type="text" id="itemDamageInput" placeholder="dice + weapon type">
+          </div>
+          <div class="col">
+            <input type="text" id="itemWeightInput" placeholder="0">
+          </div>
+          <div class="col">
+            <input type="text" id="itemPropertiesInput">
+          </div>
+        </div>
+      </form>
+      <div>
+        <button id="addItem">Add Item</button>
+      </div>
+    </div>
 
 	<script src="scripts/main.js"></script>
+  <script src="scripts/itemList.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
 </html>
